@@ -1,6 +1,5 @@
 # Libvirt customization
 This script configure virt-manager polkit when an user prompts asked for password.
- ---
 # Directory structure
 ==============
 The structure of this directory goes as follows:
