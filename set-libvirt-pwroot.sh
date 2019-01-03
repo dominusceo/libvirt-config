@@ -1,5 +1,5 @@
 # Add virt-manager user to libvirt group 
-useradd -a -G libvirt ricardo.carrillo
+usermod -a -G libvirt ricardo.carrillo
 # Create polkit rule for virt-manager does not ask password user
 cat << _EOF_>>/etc/polkit-1/rules.d/80-libvirt.rules
 polkit.addRule(function(action, subject) {
