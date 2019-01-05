@@ -10,5 +10,14 @@ polkit.addRule(function(action, subject) {
  }
 });
 _EOF_
+
 # Restore SELinux contexts
 restorecon /etc/polkit-1/rules.d/80-libvirt.rules
+
+cat << _EOF_ >> /usr/bin/qemu-kvm
+#!/bin/sh
+exec qemu-system-x86_64 -enable-kvm "$@"
+_EOF_
+
+chmod +x /usr/bin/qemu-kvm
+restorecon /usr/bin/qemu-kvm
